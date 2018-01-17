@@ -1,5 +1,5 @@
 import React from "react";
-import SurveyForm from "./SurveyForm"
+import SurveyForm from "./SurveyForm";
 import SurveyFormReview from "./SurveyFormReview";
 
 class SurveyNew extends React.Component {
@@ -7,14 +7,15 @@ class SurveyNew extends React.Component {
 
     renderContent() {
         if (this.state.showFormReview) {
-            return <SurveyFormReview/>
+            return (
+                <SurveyFormReview
+                    onCancel={() => this.setState({ showFormReview: false })}
+                />
+            );
         }
         return (
             <SurveyForm
-                onSurveySubmit={(values) => {
-                    console.log(values);
-                    return this.setState({ showFormReview: true })
-                }}
+                onSurveySubmit={() => this.setState({ showFormReview: true })}
             />
         );
     }
