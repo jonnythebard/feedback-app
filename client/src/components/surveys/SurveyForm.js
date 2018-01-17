@@ -36,7 +36,7 @@ class SurveyForm extends React.Component {
 function validate(values) {
     const errors = {};
 
-    errors.emails = validateMails(values.emails || "");
+    errors.recipents = validateMails(values.recipients || "");
 
     _.each(formFields, ({ name }) => {
         if (!values[name]) {
