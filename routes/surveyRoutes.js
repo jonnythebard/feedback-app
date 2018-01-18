@@ -12,6 +12,12 @@ module.exports = app => {
        res.send("thanks for voting!");
     });
 
+    // need config in sendgrid as well
+    app.post("/api/surveys/webhooks", (req, res) => {
+        console.log(req.body);
+        res.send({});
+    });
+
     app.post("/api/surveys", requireLogin, requireCredits, async (req, res) => {
         const { title, subject, body, recipients } = req.body;
 
